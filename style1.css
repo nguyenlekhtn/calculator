@@ -8,6 +8,8 @@
   --clr-accent: #636363;
   --clr-blur: rgba(255, 255, 255, 0.5);
   --clr-blue: #2c5ecd;
+  --clr-red: #f22;
+  --clr-purple: #22f;
 
   --ff-primary: font-family: 'Source Code Pro', monospace;
 
@@ -26,6 +28,7 @@ body {
   font-family: var(--ff-primary);
   font-weight: var(--fw-light);
   font-size: var(--fs-btn);
+  height: 100vh;
 }
 
 /* Typographic  */
@@ -43,8 +46,11 @@ h1 {
   flex-direction: column;
   padding: 2em 1em 2em;
   background-color: var(--clr-dark);
-  border: 2px solid var(--clr-blue);
+  border: 5px solid var(--clr-blue);
   border-radius: 5%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
 }
 
 .display {
@@ -60,18 +66,19 @@ h1 {
 }
 
 .buttons-grid {
+  flex-grow: 1;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 30px);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   grid-template-areas:
-    'percent divide multiply minus C'
-    '7 8 9 add AC'
-    '4 5 6 add close'
-    '1 2 3 equal open'
-    'zero zero dot equal sign';
-  gap: 0.4em;
-  width: 90%;
-  margin: 0 auto;
+    'C C AC AC'
+    'sign divide multiply minus '
+    '7 8 9 add'
+    '4 5 6 add'
+    '1 2 3 equal'
+    'zero zero dot equal';
+  gap: 0.5em;
+
 }
 
 [data-value='add'] {
@@ -86,15 +93,38 @@ h1 {
   grid-area: zero;
 }
 
+[data-value='C'] {
+  grid-area: C;
+}
+
+[data-value='AC'] {
+  grid-area: AC;
+}
+
+
+
 .btn {
   background-color: var(--clr-accent);
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid var(--clr-light);
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 .btn:hover {
   border-color: var(--clr-blue);
+}
+
+[data-value='C'], [data-value='AC'] {
+  background-color: var(--clr-red);
+}
+
+[data-value='add'],
+[data-value='subtract'],
+[data-value='multiply'],
+[data-value='divide'],
+[data-value='sign'],
+[data-value='equal'] {
+  background-color: var(--clr-purple);
 }

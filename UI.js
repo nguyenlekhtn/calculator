@@ -84,6 +84,16 @@ function handleDot() {
   }
 }
 
+function handleSign() {
+  const context = display.textContent;
+  if (context.match(/^-/)) {
+    console.log('matched');
+    display.textContent = context.slice(1, context.length);
+  } else {
+    display.textContent = '-' + context;
+  }
+}
+
 function addEventListener() {
   btns.addEventListener('click', (e) => {
     const btnValue = e.target.dataset.value;
@@ -117,6 +127,9 @@ function addEventListener() {
         break;
       case 'C':
         undo();
+        break;
+      case 'sign':
+        handleSign();
         break;
     }
   });
