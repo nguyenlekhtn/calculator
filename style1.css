@@ -1,3 +1,100 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-dark: #242424;
+  --clr-light: #fff;
+  --clr-accent: #636363;
+  --clr-blur: rgba(255, 255, 255, 0.5);
+  --clr-blue: #2c5ecd;
+
+  --ff-primary: font-family: 'Source Code Pro', monospace;
+
+  --fw-light: 300;
+  --fw-bold: 700;
+
+  --fs-btn: 1em;
+  --fs-display: 1.5em;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--clr-light);
+  color: var(--clr-light);
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-btn);
+}
+
+/* Typographic  */
+h1 {
+  color: var(--clr-blue);
+  text-align: center;
+
+
+}
+
 .container {
-    display: flex;
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 2em 1em 2em;
+  background-color: var(--clr-dark);
+  border: 2px solid var(--clr-blue);
+  border-radius: 5%;
+}
+
+.display {
+  align-self: stretch;
+  border: 1px solid var(--clr-blur);
+  border-radius: 3px;
+  margin-bottom: 2em;
+  padding: 0.5em 0.2em;
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-display);
+  text-align: end;
+}
+
+.buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 30px);
+  grid-template-areas:
+    'percent divide multiply minus C'
+    '7 8 9 add AC'
+    '4 5 6 add close'
+    '1 2 3 equal open'
+    'zero zero dot equal sign';
+  gap: 0.4em;
+  width: 90%;
+  margin: 0 auto;
+}
+
+[data-value='add'] {
+  grid-area: add;
+}
+
+[data-value='equal'] {
+  grid-area: equal;
+}
+
+[data-value='0'] {
+  grid-area: zero;
+}
+
+.btn {
+  background-color: var(--clr-accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--clr-light);
+  border-radius: 3px;
+}
+
+.btn:hover {
+  border-color: var(--clr-blue);
 }
